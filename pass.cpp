@@ -4,7 +4,7 @@
 #include <cmath>
 
 int main(void){
-    std::string alphabet = "psawrdo";
+    std::string alphabet;
 
     // for(char c  = 'a'; c <= 'z'; c++){
     //     alphabet += c;
