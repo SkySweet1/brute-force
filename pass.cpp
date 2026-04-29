@@ -3,6 +3,41 @@
 #include <chrono>
 #include <cmath>
 
+void deshif(int c, std::string alphabet){
+    for(char c : alphabet){
+        tries++;
+
+        std::string attempt;
+        attempt += c1;
+
+        if(tries % 1000 == 0){
+            auto current_time = std::chrono::high_resolution_clock::now();
+            double elapsed = std::chrono::duration<double>(current_time - start).count();
+            double speed = tries / elapsed;
+            double progress = (double)tries / total_combinations * 100.0;
+                    
+            std::cout << "\ntries-> " << tries << " - " << attempt
+                    << " | " << progress << "%"
+                    << " | " << (long long)speed << "/sec"
+                    << " | time left: " << (total_combinations - tries) / speed << " sec";
+        }
+
+        if(attempt == password){
+            auto end = std::chrono::high_resolution_clock::now();
+            double elapsed = std::chrono::duration<double>(end - start).count();
+
+            std::cout << "\n\npassword ->    " << attempt << std::endl;
+            std::cout << "tries ->    " << tries << std::endl;
+            std::cout << "time ->    " << elapsed*1000 << " MC" << std::endl;
+            std::cout << "speed ->    " << tries / elapsed << " try/sec" << std::endl;
+            std::cout << "progress ->    " << (double)tries / total_combinations * 100 << "%" << std::endl;
+                    
+            found = true;
+            break;
+        }
+    }
+}
+
 int main(void){
     std::string alphabet;
 
